@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>YouTube Video to MP3 Converter</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-space-dynamic.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <!-- <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div> -->
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="/" class="logo">
+              <h4>Apycoder<span></span></h4>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#about">About Us</a></li>
+               <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
+              <!-- <li class="scroll-to-section"><a href="#services">Services</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
+              <li class="scroll-to-section"><a href="#blog">Blog</a></li>  -->
+              <!-- <li class="scroll-to-section"><a href="#contact">Message Us</a></li>  -->
+              <li class="scroll-to-section"><div class=""><a href="#contact"></a></div></li>
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner wow fadeIn" id="top" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" >
+                <h6>Welcome to Apycoder</h6>
+                <h2>We convert <em>YouTube Videos</em> <span>To</span> MP3</h2>
+                <p>Convert video files to highest quality MP3 or download as MP4 in a single click and get the video details.<a rel="nofollow" href="#" target="_parent"> Try it Now!</a>.</p>
+                <form id="search" action="downloadmp3" method="POST">
+                  {% csrf_token %}
+                  <fieldset>
+                    <input type="address" name="address" class="email" placeholder="YouTube Video URL..." autocomplete="on" required>
+                  </fieldset>
+                  <fieldset>
+                    <button type="submit" class="main-button">Convert to MP3</button>
+                  </fieldset>
+                </form>
+                <form id="searchmp4" action="downloadmp4" method="POST">
+                  {% csrf_token %}
+                  <fieldset>
+                    <input type="addressmp4" name="addressmp4" class="email" placeholder="YouTube Video URL..." autocomplete="on" required>
+                  </fieldset>
+                  <fieldset>
+                    <button type="submit" class="main-button">Convert to MP4</button>
+                  </fieldset>
+                </form>   
+                <form id="vdetails" action="videodetails" method="POST">
+                  {% csrf_token %}
+                  <fieldset>
+                    <input type="details" name="details" id="details" class="email" placeholder="YouTube Video URL..." autocomplete="on" required>
+                  </fieldset>
+                  <fieldset>
+                    <button type="submit" class="main-button" data-bs-toggle="modal" data-bs-target="#myModal">Get Video Details</button>
+                  </fieldset>
+                </form>             
+           
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" >
+                <img src="{% static 'assets/images/banner-right-image.png' %}" alt="youtube video to mp3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="about-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-image wow fadeIn" >
+            <img src="{% static 'assets/images/about-left-image.png' %}" alt="person graphic">
+          </div>
+        </div>
+        <div class="col-lg-8 align-self-center">
+          <div class="services">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" >
+                  <div class="icon">
+                    <img src="{% static 'assets/images/service-icon-01.png' %}" alt="reporting">
+                  </div>
+                  <div class="right-text">
+                    <h4>Convert YouTube Video To MP3</h4>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="item wow fadeIn">
+                  <div class="icon">
+                    <img src="{% static 'assets/images/service-icon-02.png' %}" alt="">
+                  </div>
+                  <div class="right-text">
+                    <h4>Download YouTube Video as MP4</h4>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="item wow fadeIn">
+                  <div class="icon">
+                    <img src="{% static 'assets/images/service-icon-03.png' %}" alt="">
+                  </div>
+                  <div class="right-text">
+                    <h4>Get YouTube Video Details</h4>
+                    <p> </p>
+                  </div>
+                </div>
+              </div>              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12 align-self-center">
+            <div id="pagecontent">
+              <h2>How to Convert Youtube Video to MP3</h2>
+
+              <p>Are you a music lover and love listening to your favorite songs when you are driving in your car or travelling on the bus? If yes, then the chances are that you may be having a music player in your phone, iPod or your laptop.</p>
+              
+              <p>But, if you are looking for some different music sources and also want to listen to your favorite songs online without downloading them, then Youtube is the best place where you can find all types of music.</p>
+              
+              <p>Youtube is a very popular platform, which has billions of videos and if you search YouTube for music you will find different types of music videos. If you are a newbie and don’t know how to download the music, then there is no need to worry. Today I will tell you the best method that will allow you to convert Youtube video to MP3 for free.</p>
+              
+              <p>The best thing is that you don’t need to have any special software to convert the video to MP3, all you need is a PC or a laptop and you can enjoy your favorite music anytime.</p>
+              
+              <h2>Convert Youtube Video to MP3</h2>
+              
+              <p>If you are using Windows OS, then you will find that you can use any music converter to convert Youtube video to MP3. But, if you are using Mac OS or Linux OS, then you will need to install the special music converter.</p>
+              
+              <p>You will get many music converters in the market, but the best one is the “YouTube to MP3 Converter”. The name is self-explanatory, as it is used to convert Youtube videos to MP3.</p>
+              
+              <p>The best thing about this software is that it is free of cost and you can download it from the official website. Once you have downloaded the software, run it and wait for a while. In just a few seconds the software will start scanning your computer and will start converting the videos to MP3.</p>
+              
+              <p>Once the conversion is done, you can save the file on your hard drive and can listen to the song anytime.</p>
+              
+              <p>In conclusion, if you are looking for a reliable and best way to download the video and also to listen to it anytime, then you should try this Youtube to MP3 converter.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" >
+          <div class="section-heading">
+            <h2>Feel Free To Send Us a Message</h2>
+            <p>We'd love to hear from you! We'll get back to you as soon as we can.</p>
+            <div class="phone-info">
+             <h4>For any enquiry, Visit: <span><i class="fa fa-envelope"></i> <a href="https://apycoder.com/">Apycoder</a></span></h4>
+              <h4>For any enquiry, Mail Us: <span><i class="fa fa-envelope"></i> <a href="#">apycoder@gmail.com</a></span></h4>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" >
+          <p>© Copyright 2023  apycoder.com All Rights Reserved.
+          
+          <!-- <br>Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!-- The Modal -->
+<div class="modal" id="myModal" >
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">YouTube Details</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Video</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Title</th>
+              <td id="vtitle"></td>
+            </tr>
+            <tr>
+              <th scope="row">Duration</th>
+              <td id="vlength"></td>
+            </tr>
+            <tr>
+              <th scope="row">Thumbnail Link</th>
+              <td id="vthumburl"></td>
+            </tr>
+          <tr>
+              <th scope="row">Description</th>
+              <td id="vdesc"></td>
+            </tr>
+            <tr>
+              <th scope="row">Views</th>
+              <td id="vviews"></td>
+            </tr>
+            <tr>
+              <th scope="row">Age Restricted</th>
+              <td id="vage"></td>
+            </tr>
+          <tr>
+              <th scope="row">Video ID</th>
+              <td id="vvid"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Scripts -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <!-- <script src="{% static 'assets/js/animation.js' %}"></script> -->
+  <script src="{% static 'assets/js/imagesloaded.js' %}"></script>
+  <script src="{% static 'assets/js/templatemo-custom.js' %}"></script> 
+
+</body>
+<script type="text/javascript">
+  $(document).on('submit','#vdetails',function(e){
+      e.preventDefault();  
+      $.ajax({
+        type:'POST',
+        url: '/videodetails',
+        data: {
+          details:$('#details').val(),
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        }, 
+        success: function(data){    
+          $('#vtitle').html(data.vtitle)      
+          $('#vlength').html(data.vlength + " Seconds")      
+          $('#vthumburl').html(data.vthumburl)      
+          $('#vdesc').html(data.vdesc)      
+          $('#vviews').html(data.vviews)      
+          $('#vage').html(data.vage)      
+          $('#vvid').html(data.vvid)      
+        }
+      });
+    });
+  </script>
+</html>
